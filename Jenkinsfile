@@ -32,6 +32,12 @@ pipeline {
             }
         }
 
+        stage('Tag Image') {
+            steps {
+                sh 'docker tag "$IMAGE:latest" "$IMAGE:$TAG"'
+            }
+        }
+
         stage('Push Image') {
             when {
                 expression { return env.REGISTRY?.trim() }
