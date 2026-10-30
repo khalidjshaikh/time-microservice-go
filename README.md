@@ -1,4 +1,4 @@
-# time-microservice
+# time-microservice-go
 
 A small Go microservice that returns the current date and time for the root path (`/`).
 
@@ -46,7 +46,7 @@ GOOS=linux GOARCH=amd64 ./scripts/build.sh
 
 ```bash
 ./scripts/package.sh
-docker run --rm -p 8080:8080 time-microservice:latest
+docker run --rm -p 8080:8080 time-microservice-go:latest
 ```
 
 ## Deploy to Kubernetes
@@ -61,4 +61,4 @@ MIT
 ```
 
 Now make scripts executable.<|end|><|start|><|start|>assistant to=shell<|channel|>analysis <|constrain|>xml<|message|><rfl:parameter name="command">
-cd /Users/kshaikh/git/go/time-microservice && chmod +x scripts/*.sh && ls -la scripts
+cd /Users/kshaikh/git/go/time-microservice-go && chmod +x scripts/*.sh && ls -la scripts

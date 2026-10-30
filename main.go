@@ -87,7 +87,7 @@ func main() {
 	}
 
 	go func() {
-		log.Printf("time-microservice %s listening on :%s", version, port)
+		log.Printf("time-microservice-go %s listening on :%s", version, port)
 		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 			log.Fatalf("server error: %v", err)
 		}

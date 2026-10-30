@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Build the Docker image for time-microservice.
+# Build the Docker image for time-microservice-go.
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
-IMAGE="${IMAGE:-time-microservice}"
+IMAGE="${IMAGE:-time-microservice-go}"
 TAG="${TAG:-latest}"
 PLATFORM="${PLATFORM:-}"
 

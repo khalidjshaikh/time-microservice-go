@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build the time-microservice binary for the host platform.
+# Build the time-microservice-go binary for the host platform.
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -20,11 +20,11 @@ GOOS="${GOOS:-}"
 GOARCH="${GOARCH:-}"
 
 if [[ -n "$GOOS" || -n "$GOARCH" ]]; then
-  out="bin/time-microservice-${GOOS:-$(go env GOOS)}-${GOARCH:-$(go env GOARCH)}"
+  out="bin/time-microservice-go-${GOOS:-$(go env GOOS)}-${GOARCH:-$(go env GOARCH)}"
   CGO_ENABLED=0 GOOS="${GOOS:-$(go env GOOS)}" GOARCH="${GOARCH:-$(go env GOARCH)}" \
     go build -trimpath -ldflags "$LDFLAGS" -o "$out" .
   echo "Built $out"
 else
-  CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o bin/time-microservice .
-  echo "Built bin/time-microservice"
+  CGO_ENABLED=0 go build -trimpath -ldflags "$LDFLAGS" -o bin/time-microservice-go .
+  echo "Built bin/time-microservice-go"
 fi

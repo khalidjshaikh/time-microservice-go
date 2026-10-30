@@ -8,13 +8,13 @@ COPY go.mod go.sum* ./
 RUN go mod download
 
 COPY . .
-RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /out/time-microservice .
+RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /out/time-microservice-go .
 
 # ---- Runtime stage ----
 FROM gcr.io/distroless/static-debian12:nonroot
 
-COPY --from=builder /out/time-microservice /time-microservice
+COPY --from=builder /out/time-microservice-go /time-microservice-go
 
 EXPOSE 8080
 
-ENTRYPOINT ["/time-microservice"]
+ENTRYPOINT ["/time-microservice-go"]

@@ -5,7 +5,7 @@ bin/
 *.dll
 *.so
 *.dylib
-time-microservice
+time-microservice-go
 
 # Test artifacts
 coverage.out
