@@ -45,7 +45,7 @@ GOOS=linux GOARCH=amd64 ./scripts/build.sh
 ## Docker
 
 ```bash
-./scripts/build-docker.sh
+./scripts/package.sh
 docker run --rm -p 8080:8080 time-microservice:latest
 ```
 
