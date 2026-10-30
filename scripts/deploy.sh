@@ -23,3 +23,5 @@ kubectl rollout status deployment/time-microservice -n "${NAMESPACE}" --timeout=
 
 echo "Deployment complete."
 kubectl get pods,svc -n "${NAMESPACE}" -l app=time-microservice
+
+echo "kubectl port-forward svc/time-microservice 8080:80"
