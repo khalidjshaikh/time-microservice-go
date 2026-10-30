@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"runtime"
 	"syscall"
 	"time"
 )
@@ -27,6 +28,7 @@ type TimeResponse struct {
 	Timezone  string `json:"timezone"`
 	Unix      int64  `json:"unix"`
 	Version   string `json:"version"`
+	GoVersion string `json:"go_version"`
 }
 
 func nowHandler(w http.ResponseWriter, r *http.Request) {
@@ -50,6 +52,7 @@ func nowHandler(w http.ResponseWriter, r *http.Request) {
 		Timezone:  loc.String(),
 		Unix:      now.Unix(),
 		Version:   version,
+		GoVersion: runtime.Version(),
 	}
 
 	w.Header().Set("Content-Type", "application/json")

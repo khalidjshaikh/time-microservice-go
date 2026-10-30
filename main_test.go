@@ -23,7 +23,7 @@ func TestNowHandlerRoot(t *testing.T) {
 	if err := json.NewDecoder(rr.Body).Decode(&resp); err != nil {
 		t.Fatalf("decode response: %v", err)
 	}
-	if resp.Date == "" || resp.Time == "" || resp.Timestamp == "" {
+	if resp.Date == "" || resp.Time == "" || resp.Timestamp == "" || resp.GoVersion == "" {
 		t.Fatalf("missing required fields: %+v", resp)
 	}
 	if resp.Unix <= 0 {
