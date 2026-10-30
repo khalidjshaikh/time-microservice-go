@@ -27,6 +27,9 @@ pipeline {
         }
 
         stage('Build Image') {
+            environment {
+                TAG = 'latest'
+            }
             steps {
                 sh './scripts/package.sh'
             }
